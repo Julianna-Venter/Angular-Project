@@ -1,25 +1,20 @@
 import { Routes } from '@angular/router';
+import { BookPageComponent } from './components/book-page/book-page.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ProfileStatsComponent } from './components/profile-stats/profile-stats.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 export const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
     children: [
-      // {
-      //   path: 'top',
-      //   component: TopMangaComponent,
-      // },
-      // {
-      //   path: 'manga/:slug',
-      //   component: SelectedMangaComponent,
-      // },
-      // {
-      //   path: 'manga/:slug/chapter/:hid',
-      //   component: SelectedMangaComponent,
-      // },
+      {
+        path: 'book/:slug',
+        component: BookPageComponent,
+      },
     ],
   },
   {
@@ -27,8 +22,16 @@ export const routes: Routes = [
     component: LoginComponent,
   },
   {
+    path: 'signup',
+    component: SignUpComponent,
+  },
+  {
+    path: 'profile',
+    component: ProfileStatsComponent,
+  },
+  {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'signup',
     pathMatch: 'full',
   },
   {
